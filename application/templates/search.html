@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+    <div>
+        <p>Choose a field
+        <select class='ssearchList'>
+             <option value='ech'>--Select a Search Field--</option>
+             <option value='fname'>First Name</option>
+             <option value='lname'>Last Name</option>
+             <option value='email'>Email</option>
+             <option value='phonenum'>Phone Number</option>
+             <option value='source'>Source</option>
+        </select>
+        -List By Specific Source:
+        <select class='ssourcelist'>
+                <option value='ech'>--Select a Source--</option>
+                {% for source in sources %}
+                <option>{{ source.source }}</option>
+                {% endfor %}
+        </select>
+        </p>        
+        <p>What to Search <input id='searchin' type='text' /><button type='input' id='searcho' >Search </button>        <button type='input' id='export' class='searchcontainer'>Get CSV </button></p>
+        <p>Date Range <br/> From:<input type="text" class="fromdate" id="from" name="from" >- To:<input class="todate" type="text" id="to" name="to" ></p>
+    </div>
+		<div id='searchcontainer' style="overflow:auto;position:relative;width:1400px;left:-130px;height:600px;border:1px black solid;">
+		</div>
+{% endblock %}

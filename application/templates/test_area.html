@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style='left:-100px;position:relative;'>
+        <h1 align="center">Latest 100 Leads</h1>
+
+
+        <button type='input' id='export' class='leadlistcontainer'>Get CSV </button>
+<div id='leadlistcontainer'>
+    <table  class="table table-striped", id="table_main">
+
+        <thead>
+            <tr>
+                <th id="address">Address</th>
+                <th id="contact">Contact</th>
+                <th id="mailchim">MailchimpID</th>
+                <th id="fname">Name</th>
+                <th id="repid">Rep ID</th>
+                <th id="svname">Sub Vendor</th>
+                <th id="teledripsid">Teledrips ID</th>
+                <th id="vname">Vendor</th>
+                <th id="vert">Vertical</th>
+                <th id="adon">Added On</th>
+                <th id="source">Source</th>
+                <th id="act">Action</th>
+            </tr>
+        </thead>
+        <tbody id="table_body">
+        {% for slead in sleads %}
+                <tr>
+                    <td>{{ slead.Address }}</td>
+                    <td>{{ slead.Contact }}</td>
+                    <td>{{ slead.mailchimp_id }}</td>
+                    <td>{{ slead.Name }}</td>
+                    <td>{{ slead.rep_id }}</td>
+                    <td>{{ slead.SubVendors }}</td>
+                    <td>{{ slead.teledrips_id }}</td>
+                    <td>{{ slead.Vendors }}</td>
+                    <td>{{ slead.Vertical }}</td>
+                    <td>{{ slead.added_on }}</td>
+                    <td>{{ slead.source }}</td>
+                    <td><button type='input' class='editbutton' id={{slead.lead_id}}>Action</button></td>
+                </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+</div>
+{% endblock %}

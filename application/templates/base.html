@@ -1,0 +1,56 @@
+<html>
+    <head>
+        {% if title %}
+            <title>{{ title }}</title>
+        {% else %}
+            <title>Leads/Sales Lists and Tools</title>
+        {% endif %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../static/css/base.css">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    </head>
+    <body style="background-color: #ffffff;">
+        <nav class="navbar navbar-expand-sm" style="position:relative;width:100%;">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/testarea">Latest Leads List</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/byvendor">Vendor/Sub Lists</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/search">Search Leads</a>
+                </li>
+                <li>_____________</li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/listsales">Sales List</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/sales">Search Sales</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="container" style="background-color: white; width:100%; justify-content: center; position:relative;" >
+            {% block content %}{% endblock %}
+        </div>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script>window.jQuery </script>
+            <script src="../static/js/main.js"></script>
+            <script type=text/javascript>
+                $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+              </script>
+        <div class="modal" id="editModal" style='margin-top:50px;'>
+          <div class="modal-dialog">
+           <div class="modal-content" style='border:4px solid; border-image: repeating-linear-gradient(35deg, teal, slategray, rgb(148, 231, 231), black) 25;'>
+            <div class="editcontent"></div>
+            <br/><div style="width:100%;text-align:center;"><button type="button" class="btn btn-info" style="display:inline-block;width:120px;z-index:1000000000;" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-success" style="display:inline-block;width:120px;z-index:1000000000;">Submit</button></div><br/>
+          </div>
+         </div>
+        </div>    
+    </body>
+</html>

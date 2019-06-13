@@ -1,0 +1,30 @@
+### STAT TRIGGERS ###
+#Increment or Decrement auto sales counter on insertion or deletion of every auto lead.
+
+DELIMITER //
+CREATE TRIGGER auto_leads_increment AFTER INSERT ON lead_verticals
+	FOR EACH ROW
+	BEGIN
+		IF lead_verticals.verical_id = 1 THEN
+			UPDATE lead_stats
+				SET
+					lead_stats.value = lead_stats.value + 1
+				WHERE
+					lead_stats.key = "total_auto_leads";
+		END IF;
+  END; //
+DELIMITER ;
+  
+DELIMITER //
+CREATE TRIGGER auto_leads_decrement AFTER DELETE ON lead_verticals
+	FOR EACH ROW
+	BEGIN
+		IF lead_verticals.verical_id = 1 THEN
+			UPDATE lead_stats
+				SET
+					lead_stats.value = lead_stats.value - 1
+				WHERE
+					lead_stats.key = "total_auto_leads";
+		END IF;
+  END; //
+DELIMITER ;

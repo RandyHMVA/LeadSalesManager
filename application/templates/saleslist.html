@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 align="center">List of All Sales</h1>
+<button type='input' id='export' class='saleslistcontainer'>Get CSV </button>
+<div id='saleslistcontainer'>
+    <table  class="table table-striped", id="table_main">
+        <thead>
+            <tr>
+                <th id="name">Name</th>
+                <th id="policy">Policy Name</th>
+                <th id="agent">Agent</th>
+                <th id="cprice">Customer Price</th>
+                <th id="ddep">Down Deposit</th>
+                <th id="term">Term</th>
+                <th id="source">Source</th>
+                <th id="tele">Is Tele Dripped</th>
+                <th id="notes">Notes</th>
+                <th id="date">Date</th>
+                <th id="snotes">Secondary Notes</th>
+            </tr>
+        </thead>
+        <tbody id="table_body">
+        {% for sale in sales %}
+                <tr>
+                    <td>{{ sale.Name }}</td>
+                    <td>{{ sale.policy_name }}</td>
+                    <td>{{ sale.agent }}</td>
+                    <td>{{ sale.customer_price }}</td>
+                    <td>{{ sale.down_deposit }}</td>
+                    <td>{{ sale.term }}</td>
+                    <td>{{ sale.source }}</td>
+                    <td>{{ sale.is_tele_dripped }}</td>
+                    <td>{{ sale.notes }}</td>
+                    <td>{{ sale.Date }}</td>
+                    <td>{{ sale.notes_secondary }}</td>
+                </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

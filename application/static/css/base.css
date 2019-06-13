@@ -1,0 +1,30 @@
+
+.display-banner {
+    width: 100%;
+    height: 150px;
+}
+
+.navbar {
+    background-color: rgb(196, 248, 248);
+    border-color: #E7E7E7;
+    justify-content: center;
+
+}
+
+.nav-link {
+    color: black;
+    font-size: x-large;
+    margin-left:15px;
+    margin-right:15px;
+}
+
+
+#modalblock {
+    width: 500px;
+    clear: both;
+  }
+  
+#modalblock input {
+    width: 96%;
+    clear: both;
+  }
