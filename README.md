@@ -1,2 +1,0 @@
-# OasisLeads-API
-OasisLeads API

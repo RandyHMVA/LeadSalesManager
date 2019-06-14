@@ -1,16 +1,6 @@
 from flask import render_template, flash, redirect, url_for, request, jsonify
 from application import app
-from application import keys
-from application import api_validator
-from application import json_errors
-from application.api_calls import sub_vendors
-from application.api_calls import leads
-from application.api_calls import verticals
-from application.api_calls import fields
-from application.api_calls import vehicles
-from application.api_calls import electric_companies
 from application import db
-from application import api
 
 #veni vidi vici
 @app.route('/')

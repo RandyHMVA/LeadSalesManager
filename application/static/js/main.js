@@ -281,12 +281,15 @@ $('#export').click(function() {
     var titles = [];
     var data = [];
     var datat = $(this).attr("class");
+    //var dataname = $(this).attr('name');
   /*
     * Get the table headers, this will be CSV headers
     * The count of headers will be CSV string separator
     */
-    $( '#' + datat +  ' th').each(function() {
-      titles.push($(this).text());
+    $( '#' + datat +  ' th').each(function(index, element) {
+      if($(this).text()!=='Action'){
+        titles.push($(this).text());
+      }
     });
 
     /*
@@ -294,7 +297,9 @@ $('#export').click(function() {
     */
     $('#' + datat + ' td').each(function() {
       var correctText = $(this).text().replace(/,/g, '');
-      data.push(correctText);
+      if(correctText!=='Action'){
+        data.push(correctText);
+      }
     });
     
     /*
@@ -387,7 +392,13 @@ $(document).on('click', '.editbutton', function(e) {
         saleinfo: form
       }, function(data) {
           console.dir(data);
-          $('#editModal').toggle();
+          if(data==true){
+            alert('Success! Reloading page.');
+            location.reload();
+          }else{
+            alert('There was an error. Please Try again.');
+
+          }
       });
    });
 });
