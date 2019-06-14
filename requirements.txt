@@ -16,7 +16,9 @@ Flask-User==1.0.1.5
 pytest==3.0.5
 pytest-cov==2.4.0
 
+Cython>=0.29.7
 bokeh==1.1.0
 pymysql==0.7.2
 PyJWT>=1.4.0
+lxml>=2.2.0
 gunicorn==19.9.0
